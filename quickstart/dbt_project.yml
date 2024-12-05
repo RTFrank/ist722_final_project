@@ -32,5 +32,5 @@ clean-targets:         # directories to be removed by `dbt clean`
 models:
   vbay_vipers:
     +materialized: table
-    database: raw
+    database: analytics
     +schema: viper
