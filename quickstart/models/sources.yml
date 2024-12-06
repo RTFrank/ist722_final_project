@@ -17,15 +17,15 @@ sources:
     schema: viper
 
     tables:
-      - name: vb_zip_codes
-        columns:
-          - name: zip_code
-            tests:
-              - unique
-
       - name: vb_users
         columns:
           - name: user_id
+            tests:
+              - unique  
+              
+      - name: vb_zip_codes
+        columns:
+          - name: zip_code
             tests:
               - unique
       
@@ -58,3 +58,4 @@ sources:
       - name: vb_bid_status_lookup
         columns:
           - name: bid_status
+    
