@@ -1,0 +1,52 @@
+version: 2
+
+models: 
+  - name: fact_sales
+    description: Fact table for sales of items. Transaction one row per sale. 
+    columns:
+      - name: transactionkey
+        description: sale fact key
+        tests:
+          - unique
+          - not_null
+      - name: transactionid
+        description: business key and id for the transaction
+        tests:
+          - unique
+          - not_null
+      - name: itemid
+        description: foreign key for vb_items.item_id
+        tests:
+          - not_null
+      - name: sellerid
+        description: foreign key for vb_items.item_seller_user_id
+        tests:
+          - not_null
+      - name: buyerid
+        description: foreign key for vb_items.item_buyer_user_id
+        tests:
+          - not_null
+      - name: saledate
+        description: item end date
+        tests:
+          - not_null
+      - name: saleamount
+        description: item sold amount
+        tests:
+          - not_null
+      - name: itemlistamount
+        description: item reserve from vb_items.item_reserve
+        tests:
+          - not_null
+      - name: deliveryzipcode
+        description: zip code of buyer
+        tests:
+          - not_null
+      - name: salezipcode
+        description: zip code of seller
+        tests:
+          - not_null
+      - name: itemprofit
+        description: itemsoldamount - itemlistamount
+        tests:
+          - not_null   
