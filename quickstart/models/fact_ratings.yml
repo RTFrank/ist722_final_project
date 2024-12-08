@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: fact_rating
+    description: rating Dimension. One row per rating
+    columns:
+      - name: ratingkey
+        description: The surrogate key of the rating
+        tests:
+          - not_null
+          - unique
+      - name: ratingid
+        description: The business / source key of the rating
+        tests:
+          - not_null
+          - unique
