@@ -4,7 +4,7 @@ with vb_user_ratings as (
     vb_items as (
         select * from {{ source('viper','vb_items')}}
         )
-select {{ dbt_utils.generate_surrogate_key(['vb_user_ratings.rating_id']) }} as rating_key,
+select {{ dbt_utils.generate_surrogate_key(['rating_id']) }} as rating_key,
     r.rating_id, 
     r.rating_by_user_id as rater_id,
     r.rating_for_user_id as ratee_id, 
