@@ -1,16 +1,6 @@
 version: 2
 
 sources:
-  - name: conformed
-    database: raw
-    schema: conformed
-
-    tables:
-      - name: DateDimension
-        columns:
-          - name: DateKey
-            tests:
-              - unique
 
   - name: viper
     database: raw
@@ -58,4 +48,9 @@ sources:
       - name: vb_bid_status_lookup
         columns:
           - name: bid_status
+      - name: vb_datedimension
+        columns:
+          - name: datekey
+            tests:
+              - unique
     

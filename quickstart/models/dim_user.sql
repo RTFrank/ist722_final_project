@@ -9,7 +9,7 @@ SELECT {{ dbt_utils.generate_surrogate_key(['u.user_id']) }} as userkey,
     concat(u.user_firstname ,' ' , u.user_lastname) as usernamefirstlast,
     concat(u.user_lastname ,', ' , u.user_firstname) as usernamelastfirst,
     u.user_email as useremail, z.zip_city as usercity, z.zip_state as userstate, z.zip_code as userzipcode,
-    z.zip_lat, z.zip_lng
+    z.zip_lat as userlatitude, z.zip_lng as userlongitude
 FROM stg_users u
 LEFT JOIN stg_zip_codes z ON u.user_zip_code = z.zip_code
 
