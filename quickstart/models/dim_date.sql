@@ -12,4 +12,4 @@ select
     monthname,
     dayname,
     weekday
-    from {{ source('conformed','DateDimension')}}
+    from {{ source('viper','vb_datedimension')}}
