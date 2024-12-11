@@ -7,7 +7,7 @@ select
     item_name as itemname,
     item_type as itemtype,
     item_description as itemdescription,
-    item_enddate as itemsolddate,
+    item_enddate as auctionenddate,
     item_sold as itemsold,
     item_seller_user_id as itemselleruserid,
     item_buyer_user_id as itembuyeruserid,
