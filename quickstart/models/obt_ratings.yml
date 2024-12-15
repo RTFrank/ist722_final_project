@@ -1,0 +1,5 @@
+version: 2
+
+models:
+  - name: obt_ratings
+    description: The ratings fact table combined with all of its outrigger dimensions into one bit table. transaction based on single user rating.
