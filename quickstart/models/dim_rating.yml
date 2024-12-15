@@ -1,0 +1,16 @@
+version: 2
+
+models:
+  - name: dim_rating
+    description: rating Dimension. One row per rating
+    columns:
+      - name: rating_key
+        description: The surrogate key of the rating
+        tests:
+          - not_null
+          - unique
+      - name: rating_id
+        description: The business / source key of the rating
+        tests:
+          - not_null
+          - unique

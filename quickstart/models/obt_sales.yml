@@ -1,0 +1,5 @@
+version: 2
+
+models: 
+    - name: obt_auction
+      description: One big table for all items sold, includes outrigger dimensions including sellers, buyers, and item information.

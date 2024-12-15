@@ -33,7 +33,7 @@ select
     stg_sale.item_id as itemid,
     stg_sale.selleruserid as sellerid,
     stg_sale.buyeruserid as buyerid,
-    stg_sale.item_enddate as saledate,
+    stg_sale.item_enddate as auctionenddate,
     stg_sale.item_soldamount as saleamount,
     stg_sale.item_reserve as itemlistamount,
     stg_sale.buyer_zip_code as deliveryzipcode,

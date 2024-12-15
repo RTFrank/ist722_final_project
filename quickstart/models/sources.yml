@@ -58,3 +58,9 @@ sources:
       - name: vb_bid_status_lookup
         columns:
           - name: bid_status
+      
+      - name: vb_datedimension
+        columns:
+          - name: datekey
+            tests:
+              - unique
