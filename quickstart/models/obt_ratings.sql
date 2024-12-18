@@ -13,6 +13,7 @@ select rating_id,
     rater.user_email as rater_email,
     rater.user_firstname as rater_first_name,
     rater.user_lastname as rater_last_name,
+    concat(rater.user_firstname, ' ', rater.user_lastname) as rater_full_name,
     rater.user_zip_code as rater_zip_code,
     coalesce(rater_reviews.review_ct, 0) as rater_reviews_received,
     coalesce(rater_avg.avg_ct, 0) as rater_reviews_avg,
@@ -22,12 +23,15 @@ select rating_id,
     ratee.user_email as ratee_email,
     ratee.user_firstname as ratee_first_name,
     ratee.user_lastname as ratee_last_name,
+    concat(ratee.user_firstname, ' ', ratee.user_lastname) as ratee_full_name,
     ratee.user_zip_code as ratee_zip_code,
     coalesce(ratee_reviews.review_ct, 0) as ratee_reviews_received,
     coalesce(ratee_avg.avg_ct, 0) as ratee_reviews_avg,
     coalesce(ratee_bought.bought_ct, 0) as ratee_items_bought,
     coalesce(ratee_sold.sold_ct, 0) as ratee_items_sold,
     r.rating_astype,
+    item_info.item_name,
+    item_info.item_type,
     r.rating_value,
     r.rating_comment,
     from ratings r
@@ -77,3 +81,8 @@ select rating_id,
             where item_sold = true
             group by item_seller_user_id) ratee_sold
         on r.rating_for_user_id = ratee_sold.item_seller_user_id
+    left join (select item_seller_user_id, item_buyer_user_id, item_name, item_type
+            from items
+            where item_sold = true) item_info
+        on r.rating_by_user_id = item_info.item_seller_user_id
+        and r.rating_for_user_id = item_info.item_buyer_user_id
